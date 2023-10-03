@@ -6,23 +6,37 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private MoveableObj obj;
-
-    // Start is called before the first frame update
+    Vector2 movement;
+    Animator animator;
+   
     void Start()
     {
         Move();
     }
 
-    private void Move()
+    private void Update()
     {
-        while(obj.enabled)
-        {
-            obj.MoveTo(new Vector3(-3.5f, -0.5f, 0),
-            onComplete: () => obj.MoveTo(new Vector3(-3.5f, 3.5f, 0),
-            onComplete: () => obj.MoveTo(new Vector3(7.5f, 3.5f, 0),
-            onComplete: () => obj.MoveTo(new Vector3(7.5f, -0.45f, 0)))));
+        movement.x = obj.transform.position.x;
+        movement.y = obj.transform.position.y;
 
-        }
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
         
+    }
+
+    public void Move()
+    {
+        obj.MoveTo(new Vector3(-3.5f, -0.5f, 0), () =>
+        {
+            obj.MoveTo(new Vector3(-3.5f, 3.5f, 0), () =>
+            {
+              
+                obj.MoveTo(new Vector3(7.5f, 3.5f, 0), () =>
+                {
+
+                    obj.MoveTo(new Vector3(7.5f, -0.45f, 0), Move);
+                });
+            });
+        });
     }
 }
