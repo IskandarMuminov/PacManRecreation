@@ -6,37 +6,61 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private MoveableObj obj;
-    Vector2 movement;
-    Animator animator;
-   
+    [SerializeField] private Vector2 movement;
+    [SerializeField] private Animator animator;
+
+    private Vector3[] waypoints;
+    private int currentWaypointIndex = 0;
+
     void Start()
     {
-        Move();
+        waypoints = new Vector3[]
+        {
+            new Vector3(-3.5f, -0.5f, 0),
+            new Vector3(-3.5f, 3.5f, 0),
+            new Vector3(7.5f, 3.5f, 0),
+            new Vector3(7.5f, -0.45f, 0)
+        };
+
+        MoveToNextWaypoint();
     }
 
     private void Update()
     {
-        movement.x = obj.transform.position.x;
-        movement.y = obj.transform.position.y;
+        if (currentWaypointIndex >= waypoints.Length)
+        {
+            return; 
+        }
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        Vector3 currentWaypoint = waypoints[currentWaypointIndex];
+        Vector3 currentPosition = obj.transform.position;
+
+        Vector3 movementDirection = (currentWaypoint - currentPosition).normalized;
+
         
+        animator.SetFloat("Horizontal", movementDirection.x);
+        animator.SetFloat("Vertical", movementDirection.y);
     }
 
-    public void Move()
+    private void MoveToNextWaypoint()
     {
-        obj.MoveTo(new Vector3(-3.5f, -0.5f, 0), () =>
+        if (waypoints.Length == 0)
         {
-            obj.MoveTo(new Vector3(-3.5f, 3.5f, 0), () =>
-            {
-              
-                obj.MoveTo(new Vector3(7.5f, 3.5f, 0), () =>
-                {
+            return;
+        }
 
-                    obj.MoveTo(new Vector3(7.5f, -0.45f, 0), Move);
-                });
-            });
+        Vector3 nextWaypoint = waypoints[currentWaypointIndex];
+        obj.MoveTo(nextWaypoint, () =>
+        {
+            currentWaypointIndex++;
+
+            
+            if (currentWaypointIndex >= waypoints.Length)
+            {
+                currentWaypointIndex = 0;
+            }
+
+            MoveToNextWaypoint();
         });
     }
 }

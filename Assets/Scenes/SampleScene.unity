@@ -2617,6 +2617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 7543890612610859749}
+  movement: {x: 0, y: 0}
+  animator: {fileID: 7543890612610859751}
 --- !u!4 &819524676
 Transform:
   m_ObjectHideFlags: 0
@@ -9533,11 +9535,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585772350782395202, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.54
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 2585772350782395202, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 2585772350782395202, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9574,6 +9576,10 @@ PrefabInstance:
     - target: {fileID: 2585772350782395212, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_Name
       value: GhostBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585772350782395213, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9723,3 +9729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMeterPerSecond: 5
+--- !u!95 &7543890612610859751 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7543890612204180288, guid: 8035207dd970a164b986b36d922270bb, type: 3}
+  m_PrefabInstance: {fileID: 7543890612610859747}
+  m_PrefabAsset: {fileID: 0}
