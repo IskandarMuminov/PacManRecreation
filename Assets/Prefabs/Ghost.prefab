@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2585772350782395213}
   - component: {fileID: 8859517376464224574}
   m_Layer: 0
-  m_Name: GhostBlue
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
