@@ -54,11 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585772350782395212, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_Name
-      value: GhostBlue
+      value: GhostBlue Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2585772350782395213, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709558059028331432, guid: f87e689742c86d641bc29b1cc99288e0, type: 3}
+      propertyPath: m_text
+      value: Ghost 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

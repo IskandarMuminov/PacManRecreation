@@ -14,6 +14,7 @@ public class ColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         originalColor = textMesh.color;
     }
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         textMesh.color = hoverColor;
@@ -23,5 +24,6 @@ public class ColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         textMesh.color = originalColor;
     }
+
 }
 

@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 714955842, guid: 88e82213011f75e4fb155668096803d9, type: 3}
     - target: {fileID: 1068993713574642590, guid: bc038d7759a5564429f214aa81ce9f97, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1068993713574642590, guid: bc038d7759a5564429f214aa81ce9f97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 1068993713574642590, guid: bc038d7759a5564429f214aa81ce9f97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082402082560764788, guid: bc038d7759a5564429f214aa81ce9f97, type: 3}
+      propertyPath: m_text
+      value: Ghost 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
