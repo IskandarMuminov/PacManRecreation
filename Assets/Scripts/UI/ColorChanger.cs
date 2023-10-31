@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class ChangeColorOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Color originalColor;
     [SerializeField] private Color hoverColor;
