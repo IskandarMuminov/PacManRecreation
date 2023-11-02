@@ -8,9 +8,9 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private LevelGenerator levelMap;
     [SerializeField] private Animator animator;
-    private Input lastInput;
-    private Input currentInput;
-   
+
+    private Vector3 inputDirection = Vector3.zero;
+    private Vector3 movementDirection = Vector3.zero;
 
     private void Start()
     {
@@ -19,19 +19,32 @@ public class PacStudentController : MonoBehaviour
 
     private void Update()
     {
-        PlayerInput();
+        HandleInput();
+        MoveCharacter();
     }
 
-    private void PlayerInput()
+    private void HandleInput()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime;
+        inputDirection = new Vector3(horizontalInput, verticalInput, 0).normalized;
+    }
+
+    private void MoveCharacter()
+    {
+       
+        if (inputDirection != Vector3.zero)
+        {
+            movementDirection = inputDirection;
+        }
+
+        Vector3 movement = movementDirection * moveSpeed * Time.deltaTime;
         transform.Translate(movement);
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+       
+        animator.SetFloat("Horizontal", movementDirection.x);
+        animator.SetFloat("Vertical", movementDirection.y);
     }
 }
 
