@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public int[,] mapData = new int[,]
+    private int[,] mapData = new int[,]
     {
         {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 2},
         {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2, 5},
